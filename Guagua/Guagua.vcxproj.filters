@@ -27,6 +27,12 @@
     <ClInclude Include="System\String.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="System\Diagnostics\Debug.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="System\DateTime.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -36,6 +42,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="System\String.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Diagnostics\Debug.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="System\DateTime.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -31,3 +31,5 @@
 *.out
 *.app
 /Guagua/.vs/Guagua/v15
+/Guagua/Debug
+/Guagua/x64/Debug
