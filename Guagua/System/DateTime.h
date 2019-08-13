@@ -21,6 +21,10 @@ public:
 	unsigned int Second();
 	unsigned int MillSecond();
 
+	//
+	// 改变日期
+	void AddDays(int nDays);
+
 	String ToString();
 	/*
 	 Patterns   Format      Description                           Example

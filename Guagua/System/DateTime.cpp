@@ -1,4 +1,5 @@
 #include "DateTime.h"
+#include <atltime.h>
 
 namespace System {
 
@@ -81,5 +82,22 @@ namespace System {
 		return strTime;
 	}
 
-	
+	void DateTime::AddDays(int nDays)
+	{
+		if (nDays == 0) {
+			return;
+		}
+
+		CTime t(Year(), Month(), Day());
+		if (nDays > 0) {
+			CTimeSpan ts(nDays, 0, 0, 0);
+			t += ts;
+		}
+		else {
+			CTimeSpan ts(-nDays, 0, 0, 0);
+			t -= ts;
+		}
+
+		m_nDate = t.GetYear() * 10000 + t.GetMonth * 100 + t.GetDay();
+	}
 }
