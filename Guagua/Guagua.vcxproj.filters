@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="System">
+      <UniqueIdentifier>{92d51c0f-e4ed-470e-addb-260933a2bfb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Text">
+      <UniqueIdentifier>{294e4ea8-675e-46c2-8bff-e8f6e31fc3f4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -21,34 +27,52 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="System\Object.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="System\String.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="System\Diagnostics\Debug.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="System\Text\Encoding.h">
+      <Filter>System\Text</Filter>
     </ClInclude>
     <ClInclude Include="System\DateTime.h">
-      <Filter>头文件</Filter>
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Diagnostics\Debug.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Object.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\String.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Text\ASCIIEncoding.h">
+      <Filter>System\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Text\UTF8Encoding.h">
+      <Filter>System\Text</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="System\Object.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="System\String.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="System\Diagnostics\Debug.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="System\Text\Encoding.cpp">
+      <Filter>System\Text</Filter>
     </ClCompile>
     <ClCompile Include="System\DateTime.cpp">
-      <Filter>源文件</Filter>
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Diagnostics\Debug.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Object.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="System\String.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Text\ASCIIEncoding.cpp">
+      <Filter>System\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Text\UTF8Encoding.cpp">
+      <Filter>System\Text</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
