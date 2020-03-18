@@ -13,11 +13,26 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="System">
+    <Filter Include="头文件\Utils">
+      <UniqueIdentifier>{a58a94c2-4238-4e8b-8a5a-7061306b42c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\System">
       <UniqueIdentifier>{92d51c0f-e4ed-470e-addb-260933a2bfb7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="System\Text">
+    <Filter Include="头文件\System\Text">
       <UniqueIdentifier>{294e4ea8-675e-46c2-8bff-e8f6e31fc3f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Utils">
+      <UniqueIdentifier>{bb9aaa13-8bc1-40a8-8bf6-daee5a760e64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\System">
+      <UniqueIdentifier>{b2cb6783-a098-4a7d-a461-67ea897038e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\System\IO">
+      <UniqueIdentifier>{570195b0-04f5-42bd-95aa-92c0b1f75e1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\System\IO">
+      <UniqueIdentifier>{e281fc92-ecf2-420a-afac-7f37491888ce}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -28,25 +43,34 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="System\Text\Encoding.h">
-      <Filter>System\Text</Filter>
+      <Filter>头文件\System\Text</Filter>
     </ClInclude>
     <ClInclude Include="System\DateTime.h">
-      <Filter>System</Filter>
+      <Filter>头文件\System</Filter>
     </ClInclude>
     <ClInclude Include="System\Diagnostics\Debug.h">
-      <Filter>System</Filter>
+      <Filter>头文件\System</Filter>
     </ClInclude>
     <ClInclude Include="System\Object.h">
-      <Filter>System</Filter>
+      <Filter>头文件\System</Filter>
     </ClInclude>
     <ClInclude Include="System\String.h">
-      <Filter>System</Filter>
+      <Filter>头文件\System</Filter>
     </ClInclude>
     <ClInclude Include="System\Text\ASCIIEncoding.h">
-      <Filter>System\Text</Filter>
+      <Filter>头文件\System\Text</Filter>
     </ClInclude>
     <ClInclude Include="System\Text\UTF8Encoding.h">
-      <Filter>System\Text</Filter>
+      <Filter>头文件\System\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\FAST.h">
+      <Filter>头文件\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\getopt.h">
+      <Filter>头文件\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="System\IO\Directory.h">
+      <Filter>头文件\System\IO</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -54,25 +78,34 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="System\Text\Encoding.cpp">
-      <Filter>System\Text</Filter>
-    </ClCompile>
-    <ClCompile Include="System\DateTime.cpp">
-      <Filter>System</Filter>
-    </ClCompile>
-    <ClCompile Include="System\Diagnostics\Debug.cpp">
-      <Filter>System</Filter>
-    </ClCompile>
-    <ClCompile Include="System\Object.cpp">
-      <Filter>System</Filter>
-    </ClCompile>
-    <ClCompile Include="System\String.cpp">
-      <Filter>System</Filter>
+      <Filter>头文件\System\Text</Filter>
     </ClCompile>
     <ClCompile Include="System\Text\ASCIIEncoding.cpp">
-      <Filter>System\Text</Filter>
+      <Filter>头文件\System\Text</Filter>
     </ClCompile>
     <ClCompile Include="System\Text\UTF8Encoding.cpp">
-      <Filter>System\Text</Filter>
+      <Filter>头文件\System\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\getopt.cpp">
+      <Filter>源文件\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\FAST.cpp">
+      <Filter>源文件\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="System\DateTime.cpp">
+      <Filter>源文件\System</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Diagnostics\Debug.cpp">
+      <Filter>源文件\System</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Object.cpp">
+      <Filter>源文件\System</Filter>
+    </ClCompile>
+    <ClCompile Include="System\String.cpp">
+      <Filter>源文件\System</Filter>
+    </ClCompile>
+    <ClCompile Include="System\IO\Directory.cpp">
+      <Filter>源文件\System\IO</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

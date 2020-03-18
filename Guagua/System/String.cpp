@@ -1,7 +1,7 @@
 #include "../stdafx.h"
 #include "String.h"
 #include <string>
-
+namespace Guagua {
 namespace System {
 	String::String() {}
 
@@ -199,4 +199,4 @@ namespace System {
 
 		return true;
 	}
-}
+}}

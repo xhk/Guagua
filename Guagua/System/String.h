@@ -1,7 +1,7 @@
 #include <atlstr.h>
 #include <vector>
 
-
+namespace Guagua{
 namespace System{
 class String : public CStringW
 {
@@ -30,7 +30,7 @@ public:
 
 	// ·Ö¸î×Ö·û´®
 	// ÊÇ·ñÒÆ³ý¿ÕµÄ×Ö·û´®
-	std::vector<String> Split(wchar_t separatorbool, bool bRemoveEmptyEntries = false);
+	std::vector<String> Split(wchar_t separator, bool bRemoveEmptyEntries = false);
 	std::vector<String> Split(const String & separator, bool bRemoveEmptyEntries = false);
 
 	//***********×Ö·û´®²éÕÒÏà¹Ø******************
@@ -57,4 +57,5 @@ public:
 	String & operator<<(double num);
 };
 
+}
 }

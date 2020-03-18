@@ -1,6 +1,6 @@
 #pragma once
 #include "String.h"
-
+namespace Guagua{
 namespace System {
 
 
@@ -46,4 +46,4 @@ private:
 	unsigned int m_nTime;
 };
 
-}
+}}
