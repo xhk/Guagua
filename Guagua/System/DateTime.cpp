@@ -56,6 +56,14 @@ namespace Guagua {
 			return m_nTime % 1000;
 		}
 
+		int DateTime::GetDays(unsigned int nDstDate)
+		{
+			CTime tBegin(m_nDate / 10000, m_nDate / 100 % 100, m_nDate % 100, 0, 0, 0);
+			CTime tEnd(nDstDate / 10000, nDstDate / 100 % 100, nDstDate % 100, 0, 0, 0);
+			CTimeSpan ts = tEnd - tBegin;
+			return ts.GetDays();
+		}
+
 		String DateTime::ToString()
 		{
 			return String::Format(L"%04/d%02d/%02d %02d:%02d:%02d", Year(), Month(), Day(), Hour(), Minute(), Second());
@@ -99,6 +107,60 @@ namespace Guagua {
 			}
 
 			m_nDate = t.GetYear() * 10000 + t.GetMonth() * 100 + t.GetDay();
+		}
+
+		bool DateTime::operator == (DateTime & other) {
+			return m_nDate == other.m_nDate && m_nTime == other.m_nTime;
+		}
+		bool DateTime::operator != (DateTime & other) {
+			return m_nDate != other.m_nDate || m_nTime != other.m_nTime;
+		}
+		bool DateTime::operator < (DateTime & other) {
+			if (m_nDate < other.m_nDate) {
+				return true;
+			}
+			else if(m_nDate == other.m_nDate)
+			{
+				return m_nTime < other.m_nTime;
+			}
+			
+			return false;
+		}
+		bool DateTime::operator > (DateTime & other) 
+		{
+			if (m_nDate > other.m_nDate) {
+				return true;
+			}
+			else if (m_nDate == other.m_nDate)
+			{
+				return m_nTime > other.m_nTime;
+			}
+
+			return false;
+		}
+
+		bool DateTime::operator <= (DateTime & other){
+			if (m_nDate < other.m_nDate) {
+				return true;
+			}
+			else if(m_nDate==other.m_nDate)
+			{
+				return m_nTime <= other.m_nTime;
+			}
+
+			return false;
+		}
+
+		bool DateTime::operator >= (DateTime & other) {
+			if (m_nDate > other.m_nDate) {
+				return true;
+			}
+			else if (m_nDate == other.m_nDate)
+			{
+				return m_nTime >= other.m_nTime;
+			}
+
+			return false;
 		}
 	}
 }

@@ -58,7 +58,7 @@ UINT8  CFAST::CheckSum(BYTE* lpBuff,int nLength)
 
 ////////////////////////////编码部分////////////////////////////////////
 //带符号数，计算需要字节数
-static inline int CalcNeedByte_SIGNED(INT64 nValue)
+static int CalcNeedByte_SIGNED(INT64 nValue)
 {
 	if(nValue < 0)
 	{
@@ -99,7 +99,7 @@ static inline int CalcNeedByte_SIGNED(INT64 nValue)
 }
 
 //无符号数，计算需要字节数
-static inline int CalcNeedByte_UNSIGNED(UINT64 nValue)
+static int CalcNeedByte_UNSIGNED(UINT64 nValue)
 {
 
 	if( (nValue & MDHQ_ENCODE_7) == 0 )
@@ -135,20 +135,20 @@ static inline int CalcNeedByte_UNSIGNED(UINT64 nValue)
 	}
 }
 
-inline int CFAST::Encode_UINT8(BYTE* pData,UINT8 nNum)
+int CFAST::Encode_UINT8(BYTE* pData,UINT8 nNum)
 {
 	return Encode_UINT64(pData,nNum);
 }
 
-inline int CFAST::Encode_UINT16(BYTE* pData,UINT16 nNum)
+int CFAST::Encode_UINT16(BYTE* pData,UINT16 nNum)
 {
 	return Encode_UINT64(pData,nNum);
 }
-inline int CFAST::Encode_UINT32(BYTE* pData,UINT32 nNum)
+int CFAST::Encode_UINT32(BYTE* pData,UINT32 nNum)
 {
 	return Encode_UINT64(pData,nNum);
 }
-inline int CFAST::Encode_UINT64(BYTE* pData,UINT64 nNum)
+int CFAST::Encode_UINT64(BYTE* pData,UINT64 nNum)
 {
 	int nBytes = CalcNeedByte_UNSIGNED(nNum);
 	for(int i=nBytes-1;i>=0;--i)
@@ -165,19 +165,19 @@ inline int CFAST::Encode_UINT64(BYTE* pData,UINT64 nNum)
 }
 
 
-inline int CFAST::Encode_INT8(BYTE* pData,INT8 nNum)
+int CFAST::Encode_INT8(BYTE* pData,INT8 nNum)
 {
 	return Encode_INT64(pData,nNum);
 }
-inline int CFAST::Encode_INT16(BYTE* pData,INT16 nNum)
+int CFAST::Encode_INT16(BYTE* pData,INT16 nNum)
 {
 	return Encode_INT64(pData,nNum);
 }
-inline int CFAST::Encode_INT32(BYTE* pData,INT32 nNum)
+int CFAST::Encode_INT32(BYTE* pData,INT32 nNum)
 {
 	return Encode_INT64(pData,nNum);
 }
-inline int CFAST::Encode_INT64(BYTE* pData,INT64 nNum)
+int CFAST::Encode_INT64(BYTE* pData,INT64 nNum)
 {
 	bool bNegative = (nNum<0)?true:false;
 
@@ -202,7 +202,7 @@ inline int CFAST::Encode_INT64(BYTE* pData,INT64 nNum)
 	return nBytes;		
 }
 
-inline int CFAST::Encode_ASCIIString(BYTE* pData,char* pASCIIString)
+int CFAST::Encode_ASCIIString(BYTE* pData,char* pASCIIString)
 {
 	int nPos = strlen(pASCIIString);
 	if(nPos>0)
@@ -216,7 +216,7 @@ inline int CFAST::Encode_ASCIIString(BYTE* pData,char* pASCIIString)
 		return 1;
 	}
 }
-inline int CFAST::Encode_CNString(BYTE* pData,char* pCNString)
+int CFAST::Encode_CNString(BYTE* pData,char* pCNString)
 {
 	int nPos = strlen(pCNString);
 	int nByte = Encode_INT32(pData,nPos);		
@@ -229,7 +229,7 @@ inline int CFAST::Encode_CNString(BYTE* pData,char* pCNString)
 
 //////////////////////////////////////////////////////////////////////////
 //解码
-inline int CFAST::Decode_INT64(BYTE* pData,INT64& nNum)
+int CFAST::Decode_INT64(BYTE* pData,INT64& nNum)
 {
 	int i=0;
 	nNum = ( pData[0] & 0x40 )?-1:0;
@@ -246,7 +246,7 @@ inline int CFAST::Decode_INT64(BYTE* pData,INT64& nNum)
 	return i;
 }
 
-inline int CFAST::Decode_INT32(BYTE* pData,INT32& nNum)
+int CFAST::Decode_INT32(BYTE* pData,INT32& nNum)
 {
 	int i=0;
 	nNum = ( pData[0] & 0x40 )?-1:0;
@@ -263,7 +263,7 @@ inline int CFAST::Decode_INT32(BYTE* pData,INT32& nNum)
 	return i;
 }
 
-inline int CFAST::Decode_INT16(BYTE* pData,INT16& nNum)
+int CFAST::Decode_INT16(BYTE* pData,INT16& nNum)
 {
 	int i=0;
 	nNum = ( pData[0] & 0x40 )?-1:0;
@@ -280,7 +280,7 @@ inline int CFAST::Decode_INT16(BYTE* pData,INT16& nNum)
 	return i;
 }
 
-inline int CFAST::Decode_INT8(BYTE* pData,INT8& nNum)
+int CFAST::Decode_INT8(BYTE* pData,INT8& nNum)
 {
 	int i=0;
 	nNum = ( pData[0] & 0x40 )?-1:0;
@@ -300,7 +300,7 @@ inline int CFAST::Decode_INT8(BYTE* pData,INT8& nNum)
 	
 
 
-inline int CFAST::Decode_UINT64(BYTE* pData,UINT64& nNum)
+int CFAST::Decode_UINT64(BYTE* pData,UINT64& nNum)
 {
 	int i=0;
 	nNum = 0;
@@ -317,7 +317,7 @@ inline int CFAST::Decode_UINT64(BYTE* pData,UINT64& nNum)
 	return i;
 }
 
-inline int CFAST::Decode_UINT32(BYTE* pData,UINT32& nNum)
+int CFAST::Decode_UINT32(BYTE* pData,UINT32& nNum)
 {
 	int i=0;
 	nNum = 0;
@@ -334,7 +334,7 @@ inline int CFAST::Decode_UINT32(BYTE* pData,UINT32& nNum)
 	return i;
 }
 
-inline int CFAST::Decode_UINT16(BYTE* pData,UINT16& nNum)
+int CFAST::Decode_UINT16(BYTE* pData,UINT16& nNum)
 {
 	int i=0;
 	nNum = 0;
@@ -351,7 +351,7 @@ inline int CFAST::Decode_UINT16(BYTE* pData,UINT16& nNum)
 	return i;
 }
 
-inline int CFAST::Decode_UINT8(BYTE* pData,UINT8& nNum)
+int CFAST::Decode_UINT8(BYTE* pData,UINT8& nNum)
 {
 	int i=0;
 	nNum = 0;
@@ -373,7 +373,7 @@ inline int CFAST::Decode_UINT8(BYTE* pData,UINT8& nNum)
 ///@param pASCIIString  存放解后的数据
 ///@param nMaxLen  pASCIIString 所指能存放的最大长度
 ///@return 返回解码的字节数
-inline int CFAST::Decode_ASCIIString(BYTE* pData,char* pASCIIString,int nMaxLen)
+int CFAST::Decode_ASCIIString(BYTE* pData,char* pASCIIString,int nMaxLen)
 {
 	if(pData[0]==0x80)
 	{
@@ -420,7 +420,7 @@ inline int CFAST::Decode_ASCIIString(BYTE* pData,char* pASCIIString,int nMaxLen)
 ///@param pCNString  存放解后的数据
 ///@param nMaxLen  pCNString 所指能存放的最大长度
 ///@return 返回解码的字节数
-inline int CFAST::Decode_CNString(BYTE* pData,char* pCNString,int nMaxLen)
+int CFAST::Decode_CNString(BYTE* pData,char* pCNString,int nMaxLen)
 {
 	int nstrlen;
 	int nlen = Decode_INT32(pData,nstrlen);

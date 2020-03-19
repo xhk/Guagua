@@ -1,5 +1,8 @@
+#pragma once
 #include <atlstr.h>
 #include <vector>
+
+
 
 namespace Guagua{
 namespace System{
@@ -55,6 +58,30 @@ public:
 	String & operator<<(unsigned __int64 num);
 	String & operator<<(float num);
 	String & operator<<(double num);
+
+	struct Hash
+	{
+		public:
+			size_t operator()(const String &s) const
+			{
+				return std::hash<std::wstring>()(s.GetString());
+			}
+	};
+
+	//
+	// ºöÂÔ´óÐ¡Ð´
+	struct IgnoreCaseHash
+	{
+	public:
+		size_t operator()(const String &s) const
+		{
+			CString t = s;
+			t.MakeUpper();
+			return std::hash<std::wstring>()(t.GetString());
+		}
+	};
+
+
 };
 
 }

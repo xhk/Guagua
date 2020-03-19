@@ -34,6 +34,18 @@
     <Filter Include="源文件\System\IO">
       <UniqueIdentifier>{e281fc92-ecf2-420a-afac-7f37491888ce}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\System\Memory">
+      <UniqueIdentifier>{9084cc29-2050-470d-a81e-c34d3f7d6aae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\System\Memory">
+      <UniqueIdentifier>{33688737-78e8-42c0-9d2b-0153a8b5443c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\System\Diagnostics">
+      <UniqueIdentifier>{a392685a-6674-4c33-a88d-04b870492b92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\System\Diagnostics">
+      <UniqueIdentifier>{9325fe5a-eb59-4f13-9b47-344cca2aeec8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -46,9 +58,6 @@
       <Filter>头文件\System\Text</Filter>
     </ClInclude>
     <ClInclude Include="System\DateTime.h">
-      <Filter>头文件\System</Filter>
-    </ClInclude>
-    <ClInclude Include="System\Diagnostics\Debug.h">
       <Filter>头文件\System</Filter>
     </ClInclude>
     <ClInclude Include="System\Object.h">
@@ -71,6 +80,18 @@
     </ClInclude>
     <ClInclude Include="System\IO\Directory.h">
       <Filter>头文件\System\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Memory\Buffer.h">
+      <Filter>头文件\System\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\Config.h">
+      <Filter>头文件\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Diagnostics\Process.h">
+      <Filter>头文件\System\Diagnostics</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Diagnostics\Debug.h">
+      <Filter>头文件\System\Diagnostics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -95,9 +116,6 @@
     <ClCompile Include="System\DateTime.cpp">
       <Filter>源文件\System</Filter>
     </ClCompile>
-    <ClCompile Include="System\Diagnostics\Debug.cpp">
-      <Filter>源文件\System</Filter>
-    </ClCompile>
     <ClCompile Include="System\Object.cpp">
       <Filter>源文件\System</Filter>
     </ClCompile>
@@ -106,6 +124,18 @@
     </ClCompile>
     <ClCompile Include="System\IO\Directory.cpp">
       <Filter>源文件\System\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Memory\Buffer.cpp">
+      <Filter>源文件\System\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\Config.cpp">
+      <Filter>源文件\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Diagnostics\Debug.cpp">
+      <Filter>源文件\System\Diagnostics</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Diagnostics\Process.cpp">
+      <Filter>源文件\System\Diagnostics</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

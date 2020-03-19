@@ -20,6 +20,18 @@ public:
 	unsigned int Minute();
 	unsigned int Second();
 	unsigned int MillSecond();
+	unsigned int Date() { return m_nDate; }
+	unsigned int Time() { return m_nTime; }
+
+	bool operator == (DateTime & other);
+	bool operator != (DateTime & other);
+	bool operator < (DateTime & other);
+	bool operator > (DateTime & other);
+	bool operator <= (DateTime & other);
+	bool operator >= (DateTime & other);
+
+	// 距离目标日期的天数
+	int GetDays(unsigned int nDstDate);
 
 	//
 	// 改变日期
