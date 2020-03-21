@@ -227,6 +227,25 @@ int CFAST::Encode_CNString(BYTE* pData,char* pCNString)
 	return nPos + nByte;
 }
 
+int CFAST::Encode_CNString(BYTE* pData, char* pCNString, int nSize)
+{
+	int nPos = strlen(pCNString);
+
+	if (nSize && nPos > nSize) {
+		int nByte = Encode_INT32(pData, nSize);
+		memcpy(pData + nByte, pCNString, nSize);
+		return nSize + nByte;
+	}
+	else {
+		int nByte = Encode_INT32(pData, nPos);
+		if (nPos > 0)
+		{
+			memcpy(pData + nByte, pCNString, nPos);
+		}
+		return nPos + nByte;
+	}
+}
+
 //////////////////////////////////////////////////////////////////////////
 //解码
 int CFAST::Decode_INT64(BYTE* pData,INT64& nNum)
@@ -434,6 +453,91 @@ int CFAST::Decode_CNString(BYTE* pData,char* pCNString,int nMaxLen)
 		pCNString[0] = 0;
 	}
 	return nlen+nstrlen;
+}
+
+void CFAST::SetCmpFlag(char *_nch_ccmp_flag_data__, int n)
+{
+	_nch_ccmp_flag_data__[n / 8] |= (1 << (7 - n % 8));
+}
+
+
+
+/**
+* 取唯一标志
+*/
+int CFAST::GetCmpFlag(char *__nch_dcmp_flag_data, int n) { return (__nch_dcmp_flag_data[n / 8] & (1 << (7 - n % 8))); }
+
+int CFAST::CmpCompress(int cmpNum, int cpsNum, char *flag, int nFlagPos, BYTE *pData) {
+	int nOffset = 0;
+	if (cmpNum != cpsNum) {
+		cmpNum = cpsNum - cmpNum;
+		SetCmpFlag(flag, nFlagPos);
+		nOffset = CFAST::Encode_INT32(pData, cmpNum);
+	}
+
+	return nOffset;
+}
+
+int CFAST::CmpCompress(const unsigned int cmpNum, const unsigned int cpsNum, char *flag, int nFlagPos, BYTE *pData) {
+	int nOffset = 0;
+	if (cmpNum != cpsNum) {
+		int nNum = cpsNum - cmpNum;
+		SetCmpFlag(flag, nFlagPos);
+		nOffset = CFAST::Encode_INT32(pData, nNum);
+	}
+
+	return nOffset;
+}
+
+int CFAST::CmpCompress(__int64 cmpNum, __int64 cpsNum, char *flag, int nFlagPos, BYTE *pData) {
+	int nOffset = 0;
+	if (cmpNum != cpsNum) {
+		cmpNum = cpsNum - cmpNum;
+		SetCmpFlag(flag, nFlagPos);
+		nOffset = CFAST::Encode_INT64(pData, cmpNum);
+	}
+
+	return nOffset;
+}
+
+int CFAST::CmpDecompress(int cmpNum, int & cpsNum, char *flag, int nFlagPos, BYTE *pData) {
+	int nOffset = 0;
+	if (GetCmpFlag(flag, nFlagPos)) {
+		nOffset = CFAST::Decode_INT32(pData, cpsNum);
+		cpsNum += cmpNum;
+	}
+	else {
+		cpsNum = cmpNum;
+	}
+
+	return nOffset;
+}
+
+int CFAST::CmpDecompress(unsigned int cmpNum, unsigned int & cpsNum, char *flag, int nFlagPos, BYTE *pData) {
+	int nOffset = 0;
+	if (GetCmpFlag(flag, nFlagPos)) {
+		int nNum = 0;
+		nOffset = CFAST::Decode_INT32(pData, nNum);
+		cpsNum = cmpNum+nNum;
+	}
+	else {
+		cpsNum = cmpNum;
+	}
+
+	return nOffset;
+}
+
+int CFAST::CmpDecompress(__int64 cmpNum, __int64 & cpsNum, char *flag, int nFlagPos, BYTE *pData) {
+	int nOffset = 0;
+	if (GetCmpFlag(flag, nFlagPos)) {
+		nOffset = CFAST::Decode_INT64(pData, cpsNum);
+		cpsNum += cmpNum;
+	}
+	else {
+		cpsNum = cmpNum;
+	}
+
+	return nOffset;
 }
 	}
 }

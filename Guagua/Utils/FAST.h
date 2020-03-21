@@ -85,6 +85,7 @@ public:
 	///@return 返回编码后占用的字节数
 	static  int Encode_CNString(BYTE* pData,char* pCNString);
 
+	static int Encode_CNString(BYTE* pData, char* pCNString, int nSize);
 
 	//--------------------------------------------------------------------------------------
 	// 解码
@@ -160,6 +161,16 @@ public:
 	///@param nMaxLen  pCNString 所指能存放的最大长度
 	///@return 返回解码的字节数
 	static  int Decode_CNString(BYTE* pData,char* pCNString,int nMaxLen);
+
+	static void SetCmpFlag(char *_nch_ccmp_flag_data__, int n);
+	static int GetCmpFlag(char *__nch_dcmp_flag_data, int n);
+
+	static int CmpCompress(int cmpNum, int cpsNum, char *flag, int nFlagPos, BYTE *pData);
+	static int CmpCompress(const unsigned int cmpNum, const unsigned int cpsNum, char *flag, int nFlagPos, BYTE *pData);
+	static int CmpCompress(__int64 cmpNum, __int64 cpsNum, char *flag, int nFlagPos, BYTE *pData);
+	static int CmpDecompress(int cmpNum, int & cpsNum, char *flag, int nFlagPos, BYTE *pData);
+	static int CmpDecompress(unsigned int cmpNum, unsigned int & cpsNum, char *flag, int nFlagPos, BYTE *pData);
+	static int CmpDecompress(__int64 cmpNum, __int64 & cpsNum, char *flag, int nFlagPos, BYTE *pData);
 
 public:
 	CFAST();
