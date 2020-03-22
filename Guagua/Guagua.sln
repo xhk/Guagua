@@ -5,6 +5,11 @@ VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Guagua", "Guagua.vcxproj", "{561E7076-44D6-47EC-BBC3-6EF2C3D9987B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest", "..\UnitTest\UnitTest.vcxproj", "{5D335FAD-0765-46B1-94F9-D330B4AB3042}"
+	ProjectSection(ProjectDependencies) = postProject
+		{561E7076-44D6-47EC-BBC3-6EF2C3D9987B} = {561E7076-44D6-47EC-BBC3-6EF2C3D9987B}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +26,14 @@ Global
 		{561E7076-44D6-47EC-BBC3-6EF2C3D9987B}.Release|x64.Build.0 = Release|x64
 		{561E7076-44D6-47EC-BBC3-6EF2C3D9987B}.Release|x86.ActiveCfg = Release|Win32
 		{561E7076-44D6-47EC-BBC3-6EF2C3D9987B}.Release|x86.Build.0 = Release|Win32
+		{5D335FAD-0765-46B1-94F9-D330B4AB3042}.Debug|x64.ActiveCfg = Debug|x64
+		{5D335FAD-0765-46B1-94F9-D330B4AB3042}.Debug|x64.Build.0 = Debug|x64
+		{5D335FAD-0765-46B1-94F9-D330B4AB3042}.Debug|x86.ActiveCfg = Debug|Win32
+		{5D335FAD-0765-46B1-94F9-D330B4AB3042}.Debug|x86.Build.0 = Debug|Win32
+		{5D335FAD-0765-46B1-94F9-D330B4AB3042}.Release|x64.ActiveCfg = Release|x64
+		{5D335FAD-0765-46B1-94F9-D330B4AB3042}.Release|x64.Build.0 = Release|x64
+		{5D335FAD-0765-46B1-94F9-D330B4AB3042}.Release|x86.ActiveCfg = Release|Win32
+		{5D335FAD-0765-46B1-94F9-D330B4AB3042}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -13,6 +13,8 @@ public:
 		unsigned int nHour = 0, unsigned int nMinute = 0, unsigned int nSecond = 0, unsigned int nMillSecond = 0);
 	~DateTime();
 
+	static DateTime Now();
+
 	unsigned int Year();
 	unsigned int Month();
 	unsigned int Day();

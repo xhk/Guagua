@@ -14,6 +14,14 @@ namespace Guagua {
 		{
 		}
 
+		DateTime DateTime::Now()
+		{
+			SYSTEMTIME st = { 0 };
+			GetLocalTime(&st);
+
+			return DateTime(st.wYear, st.wMonth, st.wDay, st.wHour, st.wMinute, st.wSecond, st.wMilliseconds);
+		}
+
 		DateTime::DateTime(unsigned int nDate, unsigned int nTime)
 		{
 			m_nDate = nDate;
@@ -29,7 +37,7 @@ namespace Guagua {
 
 		unsigned int DateTime::Year()
 		{
-			return m_nDate % 10000;
+			return m_nDate / 10000;
 		}
 
 		unsigned int DateTime::Month()
@@ -96,7 +104,7 @@ namespace Guagua {
 				return;
 			}
 
-			CTime t(Year(), Month(), Day());
+			CTime t(Year(), Month(), Day(), 0, 0, 0);
 			if (nDays > 0) {
 				CTimeSpan ts(nDays, 0, 0, 0);
 				t += ts;
